@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #e3f2fd;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #90caf9;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background: #1565c0;
+            color: white;
+            padding: 12px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background: #0d47a1;
+        }
+        .chat {
+            margin-top: 30px;
+        }
+        .chat p {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .user {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+        }
+        .bot {
+            background: #f1f8e9;
+            border-left: 5px solid #66bb6a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🧠 Mental Health Chatbot</h2>
+        <form action="/predict" method="post">
+            <input type="text" name="message" placeholder="Ask me anything..." required>
+            <input type="submit" value="Send">
+        </form>
+
+        <div class="chat">
+            {% if user_input %}
+                <p class="user"><strong>You:</strong> {{ user_input }}</p>
+                <p class="bot"><strong>Bot:</strong> {{ bot_response }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
