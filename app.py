@@ -47,5 +47,6 @@ def predict():
 
     return render_template('index.html', user_input=user_input, bot_response=final_response)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
+
